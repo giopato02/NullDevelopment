@@ -1,0 +1,72 @@
+---
+import type { App } from '../data/apps';
+
+// Props mirror the App shape: name, status, description, icon, link.
+type Props = App;
+
+const { name, status, description, icon, link } = Astro.props;
+
+const isLive = status === 'live';
+const hasLink = isLive && !!link;
+
+// Treat icon as an image if it looks like a path/asset, else as a glyph.
+const iconIsImage = /^(\/|https?:|\.).*\.(svg|png|jpe?g|webp|avif)$/i.test(icon);
+
+// Accent the leading "Null" in mono, keep the rest in the body sans.
+const m = name.match(/^Null(.*)$/);
+const nullHead = m ? 'Null' : '';
+const nameRest = m ? m[1] : name;
+---
+
+<article class:list={['app-card', { 'is-live': isLive }]}>
+  <div class="app-top">
+    {
+      iconIsImage ? (
+        <img class="app-icon" src={icon} alt="" width="52" height="52" loading="lazy" />
+      ) : (
+        <span class="app-icon is-glyph" aria-hidden="true">{icon}</span>
+      )
+    }
+    {
+      isLive ? (
+        <span class="badge badge-live"><span class="dot"></span>Live</span>
+      ) : (
+        <span class="badge badge-soon"><span class="dot"></span>Coming soon</span>
+      )
+    }
+  </div>
+
+  <h3>{nullHead && <span class="nm">{nullHead}</span>}{nameRest}</h3>
+  <p class="app-desc">{description}</p>
+
+  <div class="app-actions">
+    {
+      hasLink ? (
+        <>
+          <span class="availability">Available now on Android</span>
+          <a
+            class="btn btn-play"
+            href={link}
+            target="_blank"
+            rel="noopener"
+            aria-label={`${name} — get it on Google Play (opens in a new tab)`}
+          >
+            <svg class="play-tri" width="20" height="22" viewBox="0 0 20 22" aria-hidden="true">
+              <path
+                d="M1.5 1.2 14.8 11 1.5 20.8a1 1 0 0 1-1.5-.86V2.06A1 1 0 0 1 1.5 1.2Z"
+                fill="#fbf7ef"
+              />
+              <path d="M11.4 8.2 14.8 11l-3.4 2.8" fill="#b08d57" />
+            </svg>
+            <span class="play-copy">
+              <small>Get it on</small>
+              <span>Google Play</span>
+            </span>
+          </a>
+        </>
+      ) : (
+        <span class="soon-note">In development — carrying the Null.</span>
+      )
+    }
+  </div>
+</article>

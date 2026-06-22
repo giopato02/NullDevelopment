@@ -1,0 +1,29 @@
+---
+// Reusable "NullDevelopment" wordmark.
+// "Null" renders in JetBrains Mono (the brand accent); "Development" in the
+// body sans. Size is controlled by the parent context (header / hero / footer),
+// so this component stays purely structural.
+interface Props {
+  /** Render inside an <a href="/"> (used in the header brand). */
+  href?: string;
+  /** Accessible label when used as a link. */
+  ariaLabel?: string;
+}
+const { href, ariaLabel } = Astro.props;
+const Tag = href ? 'a' : 'span';
+---
+
+<Tag
+  class:list={['wordmark', { brand: !!href }]}
+  {...href ? { href, 'aria-label': ariaLabel ?? 'NullDevelopment — home' } : {}}
+>
+  {
+    href && (
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#7b2d38" />
+        <circle cx="16" cy="16" r="8" fill="none" stroke="#fbf7ef" stroke-width="2.4" />
+        <line x1="9.5" y1="22.5" x2="22.5" y2="9.5" stroke="#fbf7ef" stroke-width="2.4" stroke-linecap="round" />
+      </svg>
+    )
+  }<span class="label"><span class="wm-null">Null</span><span class="wm-rest">Development</span></span>
+</Tag>

@@ -1,0 +1,122 @@
+---
+import Base from '../layouts/Base.astro';
+import Wordmark from '../components/Wordmark.astro';
+import AppCard from '../components/AppCard.astro';
+import { apps } from '../data/apps';
+import { SITE_DESCRIPTION, CONTACT_EMAIL } from '../consts';
+
+const title = 'NullDevelopment — solo-built apps, each carrying the Null';
+const description = SITE_DESCRIPTION;
+
+const live = apps.find((a) => a.status === 'live');
+const liveCount = apps.filter((a) => a.status === 'live').length;
+---
+
+<Base title={title} description={description} path="/">
+  {/* ===================== HERO ===================== */}
+  <section class="hero wrap" aria-labelledby="hero-heading">
+    <span class="eyebrow">solo app &amp; web studio</span>
+
+    <h1 id="hero-heading"><Wordmark /></h1>
+
+    {/* Tagline — one shown. Swap in an alternative below if you prefer:
+        • "Small studio. Every app starts at null."
+        • "Indie software, built from null." */}
+    <p class="tagline">From null to shipped.</p>
+
+    <p class="subline">
+      Solo-built apps and websites — each one carrying the
+      <span class="mono">Null</span>.
+    </p>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#apps">
+        See the apps <span class="arrow" aria-hidden="true">↓</span>
+      </a>
+      {
+        live?.link && (
+          <a class="btn btn-ghost" href={live.link} target="_blank" rel="noopener">
+            Get {live.name} on Google Play
+          </a>
+        )
+      }
+    </div>
+  </section>
+
+  {/* ===================== APPS ===================== */}
+  <section class="section" id="apps" aria-labelledby="apps-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">the lineup</span>
+        <h2 id="apps-heading">Apps</h2>
+        <p>
+          {liveCount > 0
+            ? 'One app live on Google Play, with more carrying the Null on the way.'
+            : 'A growing lineup of small, focused tools — each carrying the Null.'}
+        </p>
+      </div>
+
+      <div class="apps-grid">
+        {apps.map((app) => <AppCard {...app} />)}
+      </div>
+    </div>
+  </section>
+
+  {/* ===================== ABOUT ===================== */}
+  <section class="section" id="about" aria-labelledby="about-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">the studio</span>
+        <h2 id="about-heading">About</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-body">
+          <p>
+            NullDevelopment is the solo studio of <strong>Giorgi Pataridze</strong> —
+            one person doing the design, the code, and the shipping, all from one desk.
+            No team, no roadmap theatre; just small, useful things released when
+            they're ready.
+          </p>
+          <p>
+            The quirk is in the name: <strong>every product carries the Null</strong>.
+            It's a nod to the empty set — each app starts from nothing and only earns
+            what it keeps. If a feature can't justify its weight, it doesn't ship.
+          </p>
+        </div>
+
+        <aside class="about-aside" aria-label="Studio at a glance">
+          <dl>
+            <dt>studio</dt>
+            <dd>NullDevelopment</dd>
+            <dt>maker</dt>
+            <dd>Giorgi Pataridze</dd>
+            <dt>builds</dt>
+            <dd>apps &amp; websites</dd>
+            <dt>shipped</dt>
+            <dd>{live?.name ?? 'NullState'}</dd>
+            <dt>rule</dt>
+            <dd>everything carries Null</dd>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  {/* ===================== CONTACT ===================== */}
+  <section class="section" id="contact" aria-labelledby="contact-heading">
+    <div class="wrap">
+      <div class="contact-card">
+        <span class="eyebrow" style="justify-content:center">say hello</span>
+        <h2 id="contact-heading">Get in touch</h2>
+        <p>
+          Questions, feedback, or just want to talk shop about an app idea?
+          There's no contact form here — a real inbox works better.
+        </p>
+        <a class="contact-email" href={`mailto:${CONTACT_EMAIL}`}>
+          {CONTACT_EMAIL}
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="NullDevelopment — solo-built apps, each carrying the Null">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="0%" r="80%">
+      <stop offset="0%" stop-color="#b08d57" stop-opacity="0.22"/>
+      <stop offset="60%" stop-color="#b08d57" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#ede4d3"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect x="0" y="0" width="1200" height="8" fill="#b08d57"/>
+
+  <!-- null-set mark tile -->
+  <g transform="translate(96 132)">
+    <rect width="104" height="104" rx="24" fill="#7b2d38"/>
+    <circle cx="52" cy="52" r="25" fill="none" stroke="#fbf7ef" stroke-width="7"/>
+    <line x1="31" y1="73" x2="73" y2="31" stroke="#fbf7ef" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <!-- eyebrow -->
+  <text x="98" y="300" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="26" font-weight="700" fill="#43543a">// solo app &amp; web studio</text>
+
+  <!-- wordmark: "Null" mono + "Development" sans -->
+  <text x="94" y="372" font-size="84" font-weight="800" fill="#2a2520">
+    <tspan font-family="ui-monospace, 'SF Mono', Menlo, monospace" fill="#7b2d38">Null</tspan><tspan font-family="system-ui, 'Helvetica Neue', Arial, sans-serif">Development</tspan>
+  </text>
+
+  <!-- tagline -->
+  <text x="98" y="436" font-family="system-ui, 'Helvetica Neue', Arial, sans-serif" font-size="40" font-weight="600" fill="#2a2520">From null to shipped.</text>
+
+  <!-- subline -->
+  <text x="98" y="486" font-family="system-ui, 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#5a5046">Solo-built apps and websites, each carrying the Null.</text>
+
+  <!-- footer row -->
+  <text x="98" y="566" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="24" fill="#7b2d38">nulldevelopment.co</text>
+  <g transform="translate(840 544)">
+    <rect width="264" height="36" rx="18" fill="#43543a"/>
+    <circle cx="22" cy="18" r="4.5" fill="#fbf7ef"/>
+    <text x="38" y="24" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="18" font-weight="700" fill="#fbf7ef">NullState — live on Play</text>
+  </g>
+</svg>
