@@ -18,4 +18,5 @@ export const GITHUB_URL = 'https://github.com/giopato02';
 
 // The canonical hub URL lives in astro.config.mjs (`site`) so the sitemap,
 // robots.txt and <link rel="canonical"> all stay in sync from one place.
-// Update it there: currently the placeholder https://nulldevelopment.co
+// Currently the live Vercel URL; switch it there to https://nulldevelopment.co
+// once the custom domain is connected.
