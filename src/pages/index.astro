@@ -5,7 +5,7 @@ import AppCard from '../components/AppCard.astro';
 import { apps } from '../data/apps';
 import { SITE_DESCRIPTION, CONTACT_EMAIL } from '../consts';
 
-const title = 'NullDevelopment — solo-built apps, each carrying the Null';
+const title = 'NullDevelopment: solo-built apps, each carrying the Null';
 const description = SITE_DESCRIPTION;
 
 const live = apps.find((a) => a.status === 'live');
@@ -19,13 +19,13 @@ const liveCount = apps.filter((a) => a.status === 'live').length;
 
     <h1 id="hero-heading"><Wordmark /></h1>
 
-    {/* Tagline — one shown. Swap in an alternative below if you prefer:
+    {/* Tagline. Swap in an alternative below if you prefer:
         • "Small studio. Every app starts at null."
         • "Indie software, built from null." */}
     <p class="tagline">From 0 to 100.</p>
 
     <p class="subline">
-      Solo-developed Apps and Websites each one carrying the
+      Solo-developed Apps and Websites, each one carrying the
       <span class="mono">Null</span>.
     </p>
 
@@ -52,7 +52,7 @@ const liveCount = apps.filter((a) => a.status === 'live').length;
         <p>
           {liveCount > 0
             ? 'One app live on Google Play, with more carrying the Null on the way.'
-            : 'A growing lineup of small, focused tools — each carrying the Null.'}
+            : 'A growing lineup of small, focused tools, each carrying the Null.'}
         </p>
       </div>
 
@@ -75,7 +75,7 @@ const liveCount = apps.filter((a) => a.status === 'live').length;
           <p>
             NullDevelopment is the solo studio of <strong>Giorgi Pataridze.</strong>
             One guy doing the design, the code, and the shipping from a mac laptop.
-            <strong>The Goal<strong> is to create something that genuinely helps people.
+            <strong>The Goal</strong> is to create something that genuinely helps people.
             In today's ad-filled, deceptive and paywall blocked world of internet, I make 
             products that are congenial and truthfull.
           </p>
@@ -112,7 +112,7 @@ const liveCount = apps.filter((a) => a.status === 'live').length;
         <h2 id="contact-heading">Get in touch</h2>
         <p>
           Questions, feedback, or just want to talk shop about an app idea?
-          There's no contact form here — a real inbox works better.
+          There's no contact form here. A real inbox works better.
         </p>
         <a class="contact-email" href={`mailto:${CONTACT_EMAIL}`}>
           {CONTACT_EMAIL}

@@ -8,7 +8,7 @@
 export const SITE_TITLE = 'NullDevelopment';
 
 export const SITE_DESCRIPTION =
-  'NullDevelopment is the solo studio of Giorgi Pataridze — small, focused apps and websites, each one carrying the Null. NullState is live on Google Play.';
+  'NullDevelopment is the solo studio of Giorgi Pataridze. Small, focused apps and websites, each one carrying the Null. NullState is live on Google Play.';
 
 // Public contact address (no backend — this opens the visitor's mail client).
 export const CONTACT_EMAIL = 'nulldevelopment.co@gmail.com';

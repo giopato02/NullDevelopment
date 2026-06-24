@@ -52,6 +52,7 @@
   --dusk: #004e89; /* mid blue — links/secondary (AA on white) */
   --imperial: #002962; /* deep blue */
   --navy: #00043a; /* near-black navy — text + footer */
+  --sky: #5bc2e7; /* light sky blue: LIVE badge, fits the NullState app */
 
   /* Surfaces (cool neutrals derived from steel blue) */
   --bg: #ffffff;
@@ -543,11 +544,11 @@ code {
   flex: none;
 }
 .badge-live {
-  background: var(--accent-3);
-  color: var(--on-accent);
+  background: var(--sky);
+  color: var(--navy);
 }
 .badge-live .dot {
-  background: var(--on-accent);
+  background: var(--navy);
 }
 .badge-soon {
   background: var(--surface-sunken);
