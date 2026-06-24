@@ -29,7 +29,7 @@ export const apps: App[] = [
     // ▶ CONFIRM this matches the live listing copy.
     description:
       'A distraction-free focus timer and journal in one — a custom timer with Strict Mode, weekly stats, and a clean journal. Fully offline, no account, no subscription: your data never leaves your phone.',
-    icon: '/icons/nullstate.svg',
+    icon: '/icons/nullstate.png',
     // Real Google Play package id (app.nulldevelopment.nullstate). ▶ Confirm the
     // listing is published before relying on this link in marketing.
     link: 'https://play.google.com/store/apps/details?id=app.nulldevelopment.nullstate',

@@ -1,21 +1,21 @@
 /* ============================================================================
    NullDevelopment — global styles
    ----------------------------------------------------------------------------
-   Warm "parchment" light theme. Single source of truth for design tokens
-   lives in :root below — change a value once, it propagates everywhere.
+   Red + blue + white theme (2026 rebrand) — matched to the 0DEV studio logo
+   and NullState's app blues. Single source of truth for design tokens lives in
+   :root below — change a value once, it propagates everywhere.
 
    Type:  system grotesque sans for body/UI, JetBrains Mono (self-hosted) for
           the "Null" wordmark, status labels, and code-like details.
 
-   Contrast: colour pairings below were checked against WCAG 2.1 AA.
-             - ink on parchment ............ ~12:1  (body text)
-             - oxblood on parchment ........ ~7.3:1 (links, AA + AAA)
-             - cypress on parchment ........ ~6.5:1 (eyebrows, AA)
-             - muted ink on parchment ...... ~6.2:1 (secondary text)
-             - white on oxblood ............ ~9.2:1 (primary buttons)
-             - white on cypress ............ ~8.2:1 (LIVE badge)
-             - brass/sienna are used for large glyphs, borders and decorative
-               accents only (they do NOT meet AA as small body text).
+   Contrast (WCAG 2.1 AA) on the white background:
+             - navy ink on white .......... ~17:1  (body text)
+             - brick red on white ......... ~5.9:1 (links, primary buttons)
+             - dusk blue on white ......... ~7.0:1 (eyebrows, LIVE badge)
+             - muted slate on white ....... ~6.6:1 (secondary text)
+             - white on brick red ......... ~5.9:1 (button labels)
+             - steel blue / racing red are decorative (large glyphs, hairlines,
+               dots) and are NOT used as small body text.
    ============================================================================ */
 
 /* --- Self-hosted JetBrains Mono (latin subset, no external requests) ------- */
@@ -43,38 +43,42 @@
 
 /* --- Design tokens --------------------------------------------------------- */
 :root {
-  /* Raw brand swatches (from the brief) */
-  --parchment: #ede4d3;
-  --oxblood: #7b2d38;
-  --sienna: #b5651d;
-  --cypress: #43543a;
-  --brass: #b08d57;
-  --ink: #2a2520;
+  /* Raw brand swatches — red + blue + white (2026) */
+  --wine: #800016; /* darkest red */
+  --ruby: #a0001c; /* deep red — hovers */
+  --brick: #c00021; /* PRIMARY red */
+  --racing: #ff002b; /* high-energy red (decorative only) */
+  --steel: #407ba7; /* light blue (hairlines, decorative) */
+  --dusk: #004e89; /* mid blue — links/secondary (AA on white) */
+  --imperial: #002962; /* deep blue */
+  --navy: #00043a; /* near-black navy — text + footer */
 
-  /* Surfaces */
-  --bg: var(--parchment);
-  --surface: #f4eee2; /* card / raised surface (lighter than page) */
-  --surface-sunken: #e4d8c2; /* chips, insets */
-  --border: #d8c8ae;
-  --border-strong: #c9b48e;
+  /* Surfaces (cool neutrals derived from steel blue) */
+  --bg: #ffffff;
+  --surface: #ffffff; /* cards */
+  --surface-sunken: #eef2f7; /* chips, insets, icon tiles */
+  --border: #e1e7f0;
+  --border-strong: #ccd8e6;
 
   /* Text */
+  --ink: var(--navy);
   --text: var(--ink);
-  --text-muted: #5a5046; /* ~6.2:1 on parchment */
+  --text-muted: #4a5874; /* cool slate, ~6.6:1 on white */
 
   /* Accents (semantic) */
-  --accent: var(--oxblood); /* primary: links, primary buttons */
-  --accent-2: var(--sienna); /* secondary: large/decorative accents */
-  --accent-3: var(--cypress); /* tertiary: eyebrows, LIVE state */
-  --metal: var(--brass); /* metallic hairlines & detail */
+  --accent: var(--brick); /* primary: links, primary buttons, "Null" */
+  --accent-strong: var(--ruby); /* primary hover/active */
+  --accent-2: var(--steel); /* secondary decorative dots/details */
+  --accent-3: var(--dusk); /* tertiary: eyebrows, LIVE state, asides */
+  --metal: var(--steel); /* hairlines & detail */
 
-  /* On-accent text (kept warm rather than pure white) */
-  --on-accent: #fbf7ef;
+  /* On-accent text (pure white on red/blue/navy) */
+  --on-accent: #ffffff;
 
   /* Dark footer surface */
-  --footer-bg: var(--ink);
-  --footer-text: #e7ddcb;
-  --footer-muted: #b9ab93;
+  --footer-bg: var(--navy);
+  --footer-text: #e7ecf6;
+  --footer-muted: #97a6c4;
 
   /* Shape & scale */
   --radius: 14px;
@@ -89,9 +93,9 @@
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo,
     Consolas, 'Liberation Mono', monospace;
 
-  /* Elevation */
-  --shadow-sm: 0 1px 2px rgba(42, 37, 32, 0.06);
-  --shadow-md: 0 10px 30px -12px rgba(42, 37, 32, 0.28);
+  /* Elevation (cool navy shadow) */
+  --shadow-sm: 0 1px 2px rgba(0, 4, 58, 0.07);
+  --shadow-md: 0 14px 34px -14px rgba(0, 4, 58, 0.2);
 }
 
 /* --- Reset / base ---------------------------------------------------------- */
@@ -111,7 +115,7 @@ body {
   /* very subtle warm highlight from the top — never hurts contrast */
   background-image: radial-gradient(
     120% 70% at 50% -10%,
-    rgba(176, 141, 87, 0.16),
+    rgba(64, 123, 167, 0.1),
     transparent 60%
   );
   background-repeat: no-repeat;
@@ -233,7 +237,7 @@ code {
 }
 .eyebrow::before {
   content: '//';
-  color: var(--metal);
+  color: var(--accent);
 }
 
 /* --- Wordmark -------------------------------------------------------------- */
@@ -289,7 +293,7 @@ code {
   color: var(--on-accent);
 }
 .btn-primary:hover {
-  background: #682430;
+  background: var(--accent-strong);
 }
 .btn-ghost {
   background: transparent;
@@ -299,7 +303,7 @@ code {
 .btn-ghost:hover {
   border-color: var(--accent);
   color: var(--accent);
-  background: rgba(123, 45, 56, 0.06);
+  background: rgba(192, 0, 33, 0.06);
 }
 .btn .arrow {
   transition: transform 0.15s ease;
@@ -317,7 +321,7 @@ code {
   padding: 11px 20px;
 }
 .btn-play:hover {
-  background: #3a342c;
+  background: #0a1450;
 }
 .btn-play .play-tri {
   flex: none;
@@ -343,7 +347,7 @@ code {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(237, 228, 211, 0.85);
+  background: rgba(255, 255, 255, 0.88);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
@@ -366,8 +370,8 @@ code {
   text-decoration: none;
 }
 .brand .brand-mark {
-  width: 28px;
-  height: 28px;
+  height: 30px;
+  width: auto;
   flex: none;
 }
 .nav {
@@ -493,6 +497,9 @@ code {
   height: 52px;
   border-radius: 13px;
   flex: none;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid var(--border);
 }
 .app-icon.is-glyph {
   display: grid;
@@ -600,7 +607,7 @@ code {
 .site-footer {
   background: var(--footer-bg);
   color: var(--footer-text);
-  border-top: 3px solid var(--metal);
+  border-top: 3px solid var(--accent);
   padding-block: clamp(36px, 6vw, 56px);
 }
 .site-footer .wrap {
@@ -619,7 +626,7 @@ code {
   color: var(--footer-text);
 }
 .site-footer .wordmark .wm-null {
-  color: var(--metal);
+  color: #7bb0d6;
 }
 .site-footer .foot-copy {
   font-family: var(--font-mono);
