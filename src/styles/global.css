@@ -129,31 +129,67 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* --- Ambient animated gradient (very subtle, sits behind everything) ------ */
-body::before {
-  content: '';
+/* --- Aurora background: 4 colour blobs, each drifting the whole screen ----- */
+.aurora {
   position: fixed;
-  inset: -25%;
+  inset: 0;
   z-index: -1;
+  overflow: hidden;
   pointer-events: none;
-  background:
-    radial-gradient(34% 34% at 22% 28%, rgba(192, 0, 33, 0.06), transparent 70%),
-    radial-gradient(38% 38% at 80% 22%, rgba(0, 78, 137, 0.07), transparent 70%),
-    radial-gradient(40% 40% at 72% 80%, rgba(45, 156, 92, 0.05), transparent 70%),
-    radial-gradient(36% 36% at 26% 82%, rgba(91, 194, 231, 0.06), transparent 70%);
-  filter: blur(28px);
-  animation: aurora-drift 26s ease-in-out infinite alternate;
 }
-@keyframes aurora-drift {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(2.5%, -2%, 0) scale(1.1);
-  }
-  100% {
-    transform: translate3d(-2%, 1.5%, 0) scale(1.05);
-  }
+.aurora span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 58vw;
+  height: 58vw;
+  border-radius: 50%;
+  filter: blur(72px);
+  will-change: transform;
+}
+.aurora .b1 {
+  background: radial-gradient(circle, rgba(255, 99, 132, 0.48), transparent 66%);
+  animation: drift1 28s ease-in-out infinite;
+}
+.aurora .b2 {
+  background: radial-gradient(circle, rgba(40, 170, 255, 0.65), transparent 68%);
+  animation: drift2 34s ease-in-out infinite;
+}
+.aurora .b3 {
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.48), transparent 66%);
+  animation: drift3 31s ease-in-out infinite;
+}
+.aurora .b4 {
+  background: radial-gradient(circle, rgba(86, 200, 255, 0.6), transparent 68%);
+  animation: drift4 24s ease-in-out infinite;
+}
+@keyframes drift1 {
+  0% { transform: translate(-12vw, -10vh) scale(1); }
+  25% { transform: translate(48vw, 6vh) scale(1.25); }
+  50% { transform: translate(66vw, 50vh) scale(1.05); }
+  75% { transform: translate(14vw, 64vh) scale(1.2); }
+  100% { transform: translate(-12vw, -10vh) scale(1); }
+}
+@keyframes drift2 {
+  0% { transform: translate(70vw, -12vh) scale(1.1); }
+  25% { transform: translate(20vw, 30vh) scale(1); }
+  50% { transform: translate(-10vw, 60vh) scale(1.25); }
+  75% { transform: translate(50vw, 36vh) scale(1.05); }
+  100% { transform: translate(70vw, -12vh) scale(1.1); }
+}
+@keyframes drift3 {
+  0% { transform: translate(30vw, 70vh) scale(1.15); }
+  25% { transform: translate(72vw, 40vh) scale(1); }
+  50% { transform: translate(40vw, -8vh) scale(1.2); }
+  75% { transform: translate(-8vw, 30vh) scale(1.05); }
+  100% { transform: translate(30vw, 70vh) scale(1.15); }
+}
+@keyframes drift4 {
+  0% { transform: translate(58vw, 60vh) scale(1); }
+  25% { transform: translate(-12vw, 44vh) scale(1.2); }
+  50% { transform: translate(24vw, 4vh) scale(1.05); }
+  75% { transform: translate(70vw, 22vh) scale(1.22); }
+  100% { transform: translate(58vw, 60vh) scale(1); }
 }
 
 img,
