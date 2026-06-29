@@ -22,7 +22,7 @@ const nameRest = m ? m[1] : name;
   <div class="app-top">
     {
       iconIsImage ? (
-        <img class="app-icon" src={icon} alt="" width="52" height="52" loading="lazy" />
+        <img class="app-icon" src={icon} alt={`${name} app icon`} width="52" height="52" loading="lazy" />
       ) : (
         <span class="app-icon is-glyph" aria-hidden="true">{icon}</span>
       )
@@ -52,11 +52,8 @@ const nameRest = m ? m[1] : name;
             aria-label={`Get ${name} on Google Play (opens in a new tab)`}
           >
             <svg class="play-tri" width="20" height="22" viewBox="0 0 20 22" aria-hidden="true">
-              <path
-                d="M1.5 1.2 14.8 11 1.5 20.8a1 1 0 0 1-1.5-.86V2.06A1 1 0 0 1 1.5 1.2Z"
-                fill="#fbf7ef"
-              />
-              <path d="M11.4 8.2 14.8 11l-3.4 2.8" fill="#b08d57" />
+              <path d="M1.5 1.2 14.8 11 1.5 20.8a1 1 0 0 1-1.5-.86V2.06A1 1 0 0 1 1.5 1.2Z" />
+              <path class="play-tri-tip" d="M11.4 8.2 14.8 11l-3.4 2.8" />
             </svg>
             <span class="play-copy">
               <small>Get it on</small>

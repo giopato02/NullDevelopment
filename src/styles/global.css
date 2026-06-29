@@ -391,6 +391,12 @@ code {
 .btn-play .play-tri {
   flex: none;
 }
+.btn-play .play-tri path {
+  fill: var(--on-accent);
+}
+.btn-play .play-tri .play-tri-tip {
+  fill: var(--sky);
+}
 .btn-play .play-copy {
   display: flex;
   flex-direction: column;
@@ -405,6 +411,7 @@ code {
 .btn-play .play-copy span {
   font-size: 1.05rem;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 /* --- Header ---------------------------------------------------------------- */
@@ -585,6 +592,10 @@ code {
 }
 .app-card .app-actions {
   margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 /* Status badges (mono) */
@@ -597,14 +608,14 @@ code {
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  padding: 5px 11px;
-  border-radius: var(--radius-pill);
+  padding: 5px 10px;
+  border-radius: 4px;
   white-space: nowrap;
 }
 .badge .dot {
   width: 7px;
   height: 7px;
-  border-radius: 50%;
+  border-radius: 2px;
   flex: none;
 }
 .badge-live {
@@ -631,7 +642,7 @@ code {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--accent-3);
-  margin-bottom: 12px;
+  margin-bottom: 0;
 }
 .availability::before {
   content: '✓';
@@ -710,6 +721,28 @@ code {
 }
 .site-footer nav a:hover {
   color: var(--metal);
+}
+
+/* Social icon row */
+.site-footer .foot-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.site-footer .foot-social a {
+  display: inline-flex;
+  padding: 5px;
+  color: var(--footer-muted);
+  transition: color 0.15s ease, transform 0.08s ease;
+}
+.site-footer .foot-social a:hover {
+  color: var(--sky);
+  transform: translateY(-1px);
+}
+.site-footer .foot-social svg {
+  width: 19px;
+  height: 19px;
+  fill: currentColor;
 }
 
 /* --- Prose (privacy page) -------------------------------------------------- */
@@ -815,6 +848,36 @@ code {
   }
   .brand .label {
     font-size: 1rem;
+  }
+  /* Live app: text sits beside the button (wrapped to 2 lines), button right */
+  .app-card .app-actions {
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .app-card .app-actions .availability {
+    align-items: flex-start;
+    white-space: normal;
+    flex: none;
+    width: 9.2em;
+    line-height: 1.35;
+  }
+  .app-card .app-actions .btn-play {
+    margin-left: auto;
+    flex: none;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+  .app-card .app-actions .btn-play .play-tri {
+    width: 16px;
+    height: 18px;
+  }
+  .app-card .app-actions .btn-play .play-copy span {
+    font-size: 0.95rem;
+  }
+  .app-card .app-actions .btn-play .play-copy small {
+    font-size: 0.6rem;
   }
 }
 

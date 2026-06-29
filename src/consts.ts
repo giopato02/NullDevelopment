@@ -16,6 +16,14 @@ export const CONTACT_EMAIL = 'nulldevelopment.co@gmail.com';
 // Optional. Leave as '' to hide the GitHub link in the footer.
 export const GITHUB_URL = 'https://github.com/giopato02';
 
+// Social profiles shown as icons in the footer. Leave a value as '' to hide
+// that icon. (Accounts are live but may be empty until posting begins.)
+export const SOCIALS = {
+  x: 'https://x.com/NullDevco',
+  reddit: 'https://www.reddit.com/user/NullDevelopment_Co/',
+  linkedin: 'https://www.linkedin.com/in/giorgipataridze',
+} as const;
+
 // The canonical hub URL lives in astro.config.mjs (`site`) so the sitemap,
 // robots.txt and <link rel="canonical"> all stay in sync from one place.
 // Currently the live Vercel URL; switch it there to https://nulldevelopment.co
